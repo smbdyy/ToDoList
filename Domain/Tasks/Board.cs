@@ -43,5 +43,5 @@ public class Board : IEquatable<Board>
 
     public override int GetHashCode() => Id.GetHashCode();
 
-    public override string ToString() => $"{Id.ToString()} {Name.Value}";
+    public override string ToString() => $"{Id.ToString()} {Name}";
 }

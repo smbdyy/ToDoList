@@ -46,5 +46,5 @@ public class ToDoTask : IEquatable<ToDoTask>
         => other?.Id.Equals(Id) ?? false;
 
     public override int GetHashCode() => Id.GetHashCode();
-    public override string ToString() => $"{Id.ToString()} {Text.Value}";
+    public override string ToString() => $"{Id.ToString()} {Text}";
 }
