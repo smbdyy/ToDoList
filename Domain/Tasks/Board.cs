@@ -42,4 +42,6 @@ public class Board : IEquatable<Board>
         => other?.Id.Equals(Id) ?? false;
 
     public override int GetHashCode() => Id.GetHashCode();
+
+    public override string ToString() => $"{Id.ToString()} {Name.Value}";
 }
