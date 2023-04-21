@@ -1,4 +1,5 @@
-﻿using Domain.Common.ValueObjects;
+﻿using Domain.Common.Exceptions;
+using Domain.Common.ValueObjects;
 
 namespace Domain.Tasks;
 
@@ -24,7 +25,7 @@ public class Board : IEquatable<Board>
     {
         if (_tasks.Add(task) is false)
         {
-            throw new NotImplementedException();
+            throw BoardException.AlreadyContainsTask(this, task);
         }
     }
 
@@ -32,7 +33,7 @@ public class Board : IEquatable<Board>
     {
         if (_tasks.Remove(task) is false)
         {
-            throw new NotImplementedException();
+            throw BoardException.DoesNotContainTask(this, task);
         }
     }
 

@@ -1,4 +1,6 @@
-﻿namespace Domain.Common.ValueObjects;
+﻿using Domain.Common.Exceptions;
+
+namespace Domain.Common.ValueObjects;
 
 public struct NonEmptyString
 {
@@ -24,7 +26,7 @@ public struct NonEmptyString
     {
         if (value == string.Empty)
         {
-            throw new NotImplementedException();
+            throw IncorrectValueException.EmptyString();
         }
 
         return value;

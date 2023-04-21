@@ -1,4 +1,5 @@
-﻿using Domain.Common.ValueObjects;
+﻿using Domain.Common.Exceptions;
+using Domain.Common.ValueObjects;
 
 namespace Domain.Tasks;
 
@@ -27,7 +28,7 @@ public class ToDoTask : IEquatable<ToDoTask>
     {
         if (newBoard.Equals(Board))
         {
-            throw new NotImplementedException();
+            throw BoardException.AlreadyContainsTask(newBoard, this);
         }
 
         Board.RemoveTask(this);
