@@ -2,7 +2,6 @@
 using Application.Dto;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Presentation.Models.Boards;
 
 namespace Presentation.Controllers;
 
@@ -20,18 +19,18 @@ public class BoardController : ControllerBase
     public CancellationToken CancellationToken => HttpContext.RequestAborted;
 
     [HttpPost("create")]
-    public async Task<ActionResult<BoardDto>> CreateAsync([FromForm] BoardNameModel model)
+    public async Task<ActionResult<BoardDto>> CreateAsync([FromForm] string name)
     {
-        var command = new CreateBoard.Command(model.Name);
+        var command = new CreateBoard.Command(name);
         var response = await _mediator.Send(command, CancellationToken);
 
         return Ok(response.Board);
     }
 
     [HttpPost("changeName")]
-    public async Task<ActionResult<BoardDto>> ChangeNameAsync([FromQuery] Guid id, [FromForm] BoardNameModel model)
+    public async Task<ActionResult<BoardDto>> ChangeNameAsync([FromQuery] Guid id, [FromForm] string name)
     {
-        var command = new ChangeName.Command(id, model.Name);
+        var command = new ChangeName.Command(id, name);
         var response = await _mediator.Send(command, CancellationToken);
 
         return Ok(response.Board);
