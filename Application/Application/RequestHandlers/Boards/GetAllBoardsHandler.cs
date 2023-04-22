@@ -1,8 +1,6 @@
 ﻿using Application.Abstractions.DataAccess;
 using Application.Mapping;
-using Domain.Tasks;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 using static Application.Contracts.Boards.GetAllBoards;
 
 namespace Application.RequestHandlers.Boards;
