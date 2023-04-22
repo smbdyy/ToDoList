@@ -22,6 +22,11 @@ public struct NonEmptyString
         return _value;
     }
 
+    public static implicit operator NonEmptyString(string value)
+    {
+        return new NonEmptyString(value);
+    }
+
     private static string ValidateNotEmpty(string value)
     {
         if (value == string.Empty)
