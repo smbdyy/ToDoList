@@ -1,3 +1,3 @@
 ﻿namespace DataAccess;
 
-public interface IAssemblyMarker { }
+internal interface IAssemblyMarker { }
