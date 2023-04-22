@@ -1,3 +1,3 @@
 ﻿namespace Application;
 
-public interface IAssemblyMarker { }
+internal interface IAssemblyMarker { }

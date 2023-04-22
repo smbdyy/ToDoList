@@ -17,7 +17,7 @@ public class Board : IEquatable<Board>
     protected Board() { }
 #pragma warning restore CS8618
 
-    public Guid Id { get; }
+    public Guid Id { get; protected init; }
     public NonEmptyString Name { get; set; }
     public virtual IReadOnlyCollection<ToDoTask> Tasks => _tasks;
 

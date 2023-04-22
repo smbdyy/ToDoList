@@ -18,7 +18,7 @@ public class ToDoTask : IEquatable<ToDoTask>
     protected ToDoTask() { }
 #pragma warning restore CS8618
 
-    public Guid Id { get; }
+    public Guid Id { get; protected init;  }
     public NonEmptyString Text { get; set; }
     public TaskPriority Priority { get; set; }
     public bool IsCompleted { get; private set; }
