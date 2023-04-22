@@ -14,12 +14,14 @@ internal class DeleteToDoTaskHandler : IRequestHandler<Command>
         _context = context;
     }
 
-    public async Task Handle(Command request, CancellationToken cancellationToken)
+    public async Task<Unit> Handle(Command request, CancellationToken cancellationToken)
     {
         var task = await _context.Tasks.GetEntityByIdAsync(request.Id, cancellationToken);
         task.Board.RemoveTask(task);
 
         _context.Tasks.Remove(task);
         await _context.SaveChangesAsync(cancellationToken);
+
+        return Unit.Value;
     }
 }

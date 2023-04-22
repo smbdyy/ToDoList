@@ -4,5 +4,5 @@ namespace Application.Contracts.Boards;
 
 public static class DeleteBoard
 {
-    public record struct Command(Guid Id) : IRequest;
+    public record struct Command(Guid Id) : IRequest, IRequest<Unit>;
 }

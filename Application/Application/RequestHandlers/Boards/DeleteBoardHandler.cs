@@ -14,11 +14,13 @@ internal class DeleteBoardHandler : IRequestHandler<Command>
         _context = context;
     }
 
-    public async Task Handle(Command request, CancellationToken cancellationToken)
+    public async Task<Unit> Handle(Command request, CancellationToken cancellationToken)
     {
         var board = await _context.Boards.GetEntityByIdAsync(request.Id, cancellationToken);
 
         _context.Boards.Remove(board);
         await _context.SaveChangesAsync(cancellationToken);
+
+        return Unit.Value;
     }
 }
